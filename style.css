@@ -1,0 +1,251 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-width: 72rem;
+  --page-padding: 1.25rem;
+  --bg-color: #f4f7fb;
+  --text-color: #1f2937;
+  --muted-color: #4b5563;
+  --border-color: #dfe6ee;
+  --primary-color: #4f46e5;
+  --primary-color-strong: #4338ca;
+  --link-color: #4f46e5;
+  --space-xs: 0.5rem;
+  --space-lg: 3rem;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text-color);
+  background: #f7f9fc;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.9rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+  color: var(--muted-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--primary-color-strong);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+header,
+nav,
+main,
+footer {
+  width: min(var(--page-width), calc(100% - (var(--page-padding) * 2)));
+  margin-inline: auto;
+}
+
+header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 2.25rem 1.5rem;
+}
+
+header > div {
+  max-width: 40rem;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-block: 0.7rem;
+  background: rgba(244, 247, 251, 0.96);
+  border-block: 1px solid var(--border-color);
+}
+
+main {
+  padding-block: 1rem 2.25rem;
+}
+
+section {
+  max-width: 42rem;
+  padding-block: 0.75rem 2rem;
+  scroll-margin-top: 5rem;
+}
+
+section + section {
+  border-top: 1px solid var(--border-color);
+}
+
+footer {
+  padding-block: 1.5rem 2.5rem;
+  border-top: 1px solid var(--border-color);
+  scroll-margin-top: 5rem;
+}
+
+address {
+  font-style: normal;
+  color: var(--muted-color);
+}
+
+.site-title {
+  margin-bottom: 0.35rem;
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  font-weight: 700;
+}
+
+.lead {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  color: var(--muted-color);
+}
+
+.intro-points {
+  padding-left: 1.15rem;
+  margin-top: 0.75rem;
+}
+
+.profile-image {
+  width: clamp(10rem, 23vw, 14.5rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 25%;
+  justify-self: end;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.site-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.site-nav-list a:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--space-xs);
+  padding-left: 0;
+  margin: 0 0 1rem;
+  list-style: none;
+}
+
+.music-description {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--primary-color-strong);
+  opacity: 0.9;
+}
+
+audio {
+  width: 100%;
+  max-width: 30rem;
+  height: 2.2rem;
+  accent-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.45rem 0.6rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+audio:hover {
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 40rem) {
+  header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-top: 2.25rem;
+  }
+
+  .profile-image {
+    justify-self: start;
+  }
+
+  nav {
+    padding-block: 0.7rem;
+  }
+
+  .site-nav-list {
+    gap: 0.5rem;
+  }
+
+  .site-nav-list a {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 0;
+  }
+
+  audio {
+    height: 1.9rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  main {
+    padding-top: 1rem;
+  }
+}
